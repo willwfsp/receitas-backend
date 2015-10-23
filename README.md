@@ -13,3 +13,7 @@ O Receitas Backend é uma API construida em Django para consumo de serviços via
 1. Use de preferemcia o GitBash se estiver no windows
 2. Sempre esteja no virtualenv (`source env/Scripts/activate` no Windows e `source env/bin/activate`no Mac)
 3. Para rodar o a API basta executar `python manage.py runserver` na pasta `receitas`
+
+
+## Links Uteis
+* [Django REST Framework](http://www.django-rest-framework.org/): Um conjunto de ferramentas que torna fácil a criação de Web APIs.
