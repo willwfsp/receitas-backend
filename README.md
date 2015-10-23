@@ -4,8 +4,8 @@ O Receitas Backend é uma API construida em Django para consumo de serviços via
 
 ## Instalação
 
-1. Instale o Python (2.7 ou maior)
-2. Instale o PIP
+1. Instale o [Python](https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi) (2.7 ou maior)
+2. Instale o [PIP](http://pip.readthedocs.org/en/stable/installing/)
 3. Instale o [Virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 
 ## Build & Desenvolvimento
