@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7ce75a6-fc5c-4a84-a6f0-eec5dad9da3f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/db.sqlite3" afterPath="$PROJECT_DIR$/receitas/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/api/models.py" afterPath="$PROJECT_DIR$/receitas/api/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/api/serializers.py" afterPath="$PROJECT_DIR$/receitas/api/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/receitas/settings.py" afterPath="$PROJECT_DIR$/receitas/receitas/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/receitas/urls.py" afterPath="$PROJECT_DIR$/receitas/receitas/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/receitas/api/views.py" afterPath="$PROJECT_DIR$/receitas/api/views.py" />
-    </list>
+    <list default="true" id="b7ce75a6-fc5c-4a84-a6f0-eec5dad9da3f" name="Default" comment="" />
     <ignored path="receitas-backend.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -269,6 +262,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -400,6 +394,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b7ce75a6-fc5c-4a84-a6f0-eec5dad9da3f" name="Default" comment="" />
@@ -432,6 +429,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
