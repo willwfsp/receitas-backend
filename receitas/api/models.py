@@ -10,6 +10,15 @@ class Categoria(models.Model):
     def __unicode__(self):
         return '%s' % self.nome
 
+class Metodo(models.Model):
+    nome = models.CharField(max_length=100, blank=True, default='', primary_key=True)
+
+    class Meta:
+        ordering = ('nome',)
+
+    def __unicode__(self):
+        return '%s' % self.nome
+
 class Receita(models.Model):
 
     nome = models.CharField(max_length=50, blank=True)
@@ -20,15 +29,26 @@ class Receita(models.Model):
     rendimento = models.IntegerField(blank=True, default=1)
     valor_nutricional = models.IntegerField(blank=True, default=1)
     estrelas = models.IntegerField(blank=True, default=1)
-
-    #ingredientes
-    #instrucoes
-    #metodo cozimento
+    metodo = models.ForeignKey(Metodo, related_name='receitas')
+    instrucoes = models.CharField(max_length=800, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('created',)
+
+class Ingrediente(models.Model):
+
+    nome = models.CharField(max_length=50, blank=True)
+    quantidade = models.IntegerField(blank=True, default=1)
+    unidade = models.CharField(max_length=50, blank=True)
+    receita = models.ForeignKey(Receita, related_name='ingredientes')
+
+    class Meta:
+        ordering = ('nome',)
+
+
+
 
 
 
