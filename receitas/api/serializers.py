@@ -2,7 +2,7 @@ from rest_framework import serializers
 from models import Receita, Categoria
 
 
-class ReceitaSerializer(serializers.ModelSerializer):
+class ReceitaListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Receita
         fields = ('id', 'nome', 'estrelas', 'foto', 'categoria')
@@ -14,6 +14,11 @@ class ReceitaSerializer(serializers.ModelSerializer):
         print(str(categoria))
         receita = Receita.objects.create(categoria=categoria, **validated_data)
         return receita
+
+class ReceitaDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Receita
+        fields = ('id', 'nome', 'estrelas', 'foto', 'categoria', 'valor_nutricional', 'rendimento', 'tempo', 'descricao')
 
 class CategoriaSerializer(serializers.ModelSerializer):
 
