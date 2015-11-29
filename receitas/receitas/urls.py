@@ -3,7 +3,8 @@ from rest_framework import routers
 from api import views
 
 router = routers.DefaultRouter()
-router.register(r'receitas', views.RecipeViewSet)
+router.register(r'receitas', views.ReceitaViewSet)
+router.register(r'categorias', views.CategoriaViewSet)
 
 
 # Wire up our API using automatic URL routing.
