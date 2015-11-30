@@ -2,11 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -55,6 +57,7 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('categoria', models.ForeignKey(related_name='receitas', to='api.Categoria')),
                 ('metodo', models.ForeignKey(related_name='receitas', to='api.Metodo')),
+                ('owner', models.ForeignKey(related_name='receitas', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ('created',),

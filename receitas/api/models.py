@@ -21,6 +21,7 @@ class Metodo(models.Model):
 
 class Receita(models.Model):
 
+    owner = models.ForeignKey('auth.User', related_name='receitas')
     nome = models.CharField(max_length=50, blank=True)
     descricao = models.CharField(max_length=300, blank=True)
     foto = models.CharField(max_length=200, blank=True, default='')
