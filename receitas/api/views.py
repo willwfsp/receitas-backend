@@ -1,5 +1,5 @@
 from rest_framework import viewsets, filters, generics
-from serializers import ReceitaListSerializer, ReceitaDetailSerializer, CategoriaSerializer, UserSerializer
+from serializers import ReceitaListSerializer, ReceitaDetailSerializer, CategoriaSerializer, UserSerializer,UserPOSTSerializer
 from models import Receita, Categoria, Metodo
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
@@ -10,9 +10,17 @@ from django.contrib.auth.models import User
 from permissions import IsOwnerOrReadOnly
 from rest_framework import permissions
 
+
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def post(self, request, format=None):
+        serializer = UserPOSTSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UserDetail(generics.RetrieveAPIView):
@@ -26,13 +34,21 @@ class ReceitaList(APIView):
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+    queryset = Receita.objects.all()
+    serializer_class = ReceitaListSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filter_fields = ('nome',)
+
     def valida_categoria(self, data):
-        nome_categoria = data['categoria']
-        Categoria.objects.get_or_create(nome=nome_categoria)
+        if 'categoria' in data:
+            nome_categoria = data['categoria']
+            Categoria.objects.get_or_create(nome=nome_categoria)
 
     def valida_metodo(self, data):
-        nome_metodo = data['metodo']
-        Metodo.objects.get_or_create(nome=nome_metodo)
+        print(data)
+        if 'metodo' in data:
+            nome_metodo = data['metodo']
+            Metodo.objects.get_or_create(nome=nome_metodo)
 
     @csrf_exempt
     def get(self, request, format=None):
@@ -59,6 +75,17 @@ class ReceitaDetail(APIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
                       IsOwnerOrReadOnly,)
 
+    def valida_categoria(self, data):
+        if 'categoria' in data:
+            nome_categoria = data['categoria']
+            Categoria.objects.get_or_create(nome=nome_categoria)
+
+    def valida_metodo(self, data):
+        print(data)
+        if 'metodo' in data:
+            nome_metodo = data['metodo']
+            Metodo.objects.get_or_create(nome=nome_metodo)
+
     def get_object(self, pk):
         try:
             return Receita.objects.get(pk=pk)
@@ -71,6 +98,8 @@ class ReceitaDetail(APIView):
         return Response(serializer.data)
 
     def put(self, request, pk, format=None):
+        self.valida_categoria(request.data)
+        self.valida_metodo(request.data)
         receita = self.get_object(pk)
         serializer = ReceitaDetailSerializer(receita, data=request.data)
         if serializer.is_valid():
@@ -92,4 +121,5 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     serializer_class = CategoriaSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filter_fields = ('nome',)
+
 

@@ -5,10 +5,9 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'categorias', views.CategoriaViewSet)
 
-
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^api/', include(router.urls)),
+    url(r'^', include(router.urls)),
     url(r'^', include('api.urls'))
 ]
